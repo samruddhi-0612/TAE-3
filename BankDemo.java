@@ -1,34 +1,17 @@
-interface Bank {
-    double getInterestRate();
-}
+class Bank {
+    final double interestRate = 5.0;
 
-class SBI implements Bank {
-    public double getInterestRate() {
-        return 6.5;
-    }
-}
-
-class HDFC implements Bank {
-    public double getInterestRate() {
-        return 7.0;
-    }
-}
-
-class ICICI implements Bank {
-    public double getInterestRate() {
-        return 6.8;
+    double calculateInterest(double amount) {
+        return (amount * interestRate) / 100;
     }
 }
 
 public class BankDemo {
     public static void main(String[] args) {
 
-        Bank b1 = new SBI();
-        Bank b2 = new HDFC();
-        Bank b3 = new ICICI();
+        Bank b = new Bank();
 
-        System.out.println("SBI Interest Rate: " + b1.getInterestRate());
-        System.out.println("HDFC Interest Rate: " + b2.getInterestRate());
-        System.out.println("ICICI Interest Rate: " + b3.getInterestRate());
+        System.out.println("Interest on 1000: " + b.calculateInterest(1000));
+        System.out.println("Interest on 5000: " + b.calculateInterest(5000));
     }
 }
